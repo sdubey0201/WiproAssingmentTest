@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
 
         actionBar = getSupportActionBar();
         actionBar.setTitle(getString(R.string.title));
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        progressBar =  findViewById(R.id.progress_bar);
+        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
+        RecyclerView recyclerView =  findViewById(R.id.recyclerView);
 
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
@@ -59,15 +59,6 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
 
     }
 
-    /**
-     *
-     * @param newConfig
-     * Override this method to avoid recreation of activity on orientation change
-     */
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
 
     @Override
     public void showLoading() {
@@ -88,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.error_dialog);
 
-        TextView title = (TextView) dialog.findViewById(R.id.error_title);
-        TextView errorMessage = (TextView) dialog.findViewById(R.id.error_message);
-        Button button = (Button) dialog.findViewById(R.id.button_ok);
+        TextView title =  dialog.findViewById(R.id.error_title);
+        TextView errorMessage =  dialog.findViewById(R.id.error_message);
+        Button button =  dialog.findViewById(R.id.button_ok);
 
         title.setText(R.string.error);
         errorMessage.setText(msg);
