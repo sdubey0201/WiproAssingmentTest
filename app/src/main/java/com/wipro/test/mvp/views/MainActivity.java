@@ -22,7 +22,7 @@ import com.wipro.test.mvp.presenters.RowsPresenter;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements RowListView, SwipeRefreshLayout.OnRefreshListener{
+public class MainActivity extends AppCompatActivity implements RowListView, SwipeRefreshLayout.OnRefreshListener {
 
     private RowsPresenter presenter;
     private ProgressBar progressBar;
@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
 
         actionBar = getSupportActionBar();
         actionBar.setTitle(getString(R.string.title));
-        progressBar =  findViewById(R.id.progress_bar);
-        swipeRefreshLayout =  findViewById(R.id.swipeRefreshLayout);
-        RecyclerView recyclerView =  findViewById(R.id.recyclerView);
+        progressBar = findViewById(R.id.progress_bar);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
@@ -79,17 +79,18 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.error_dialog);
 
-        TextView title =  dialog.findViewById(R.id.error_title);
-        TextView errorMessage =  dialog.findViewById(R.id.error_message);
-        Button button =  dialog.findViewById(R.id.button_ok);
+        TextView title = dialog.findViewById(R.id.error_title);
+        TextView errorMessage = dialog.findViewById(R.id.error_message);
+        Button button = dialog.findViewById(R.id.button_ok);
 
         title.setText(R.string.error);
         errorMessage.setText(msg);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
+        button.setOnClickListener(view -> {
+            if (dialog == null) {
+                return;
             }
+            dialog.dismiss();
+
         });
         dialog.show();
     }
@@ -116,7 +117,6 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
         }
 
     }
-
 
 
 }
