@@ -50,8 +50,10 @@ public class RowsRetrofitClient {
                     iRowsDataListener.onRowsResultReceived(serverResponse);
                 }, throwable -> {
                     if (iRowsDataListener == null) {
-                        iRowsDataListener.onError(throwable.getMessage());
+                        return;
                     }
+
+                    iRowsDataListener.onError(throwable.getMessage());
                 });
     }
 
