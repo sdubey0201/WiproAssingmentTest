@@ -38,7 +38,6 @@ public class RowsPresenter implements IRowsDataListener {
             return;
         }
         view.showLoading();
-
         rowsRetrofitClient.callRowsData(this);
     }
 
@@ -54,7 +53,6 @@ public class RowsPresenter implements IRowsDataListener {
     @Override
     public void onError(String s) {
         view.hideLoading();
-
         view.showError(HOST_ERROR);
     }
 }

@@ -54,7 +54,7 @@ public class RowsRetrofitClient {
                 });
     }
 
-    private ServerResponse  removeEmptyItemFromResponse(ServerResponse serverResponse) {
+    private ServerResponse removeEmptyItemFromResponse(ServerResponse serverResponse) {
 
         List<Rows> list = serverResponse.getRows();
         if (list != null) {

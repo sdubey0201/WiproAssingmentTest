@@ -19,4 +19,12 @@ public class ServerResponse {
     public String getTitle() {
         return title;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setRows(List<Rows> rows) {
+        this.rows = rows;
+    }
 }
