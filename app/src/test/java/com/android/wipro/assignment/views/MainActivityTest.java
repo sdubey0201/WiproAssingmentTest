@@ -1,4 +1,4 @@
-package com.wipro.test;
+package com.android.wipro.assignment.views;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.wipro.assignment.views.MainActivity;
+import com.android.wipro.assignment.BuildConfig;
+import com.android.wipro.assignment.R;
 
 import org.junit.After;
 import org.junit.Before;
@@ -24,6 +25,7 @@ import org.robolectric.shadows.ShadowApplication;
 import org.robolectric.shadows.ShadowDialog;
 
 import static org.junit.Assert.*;
+
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = Config.NONE)
 public class MainActivityTest {
