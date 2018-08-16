@@ -1,6 +1,6 @@
-package com.wipro.test.mvp.network;
+package com.android.wipro.assignment.network;
 
-import com.wipro.test.mvp.model.ServerResponse;
+import com.android.wipro.assignment.model.ServerResponse;
 
 import retrofit2.http.GET;
 import rx.Observable;

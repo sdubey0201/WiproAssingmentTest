@@ -1,4 +1,4 @@
-package com.wipro.test.mvp.model;
+package com.android.wipro.assignment.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.wipro.test.mvp.views;
+package com.android.wipro.assignment.views;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -6,9 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.wipro.assignment.R;
 import com.bumptech.glide.Glide;
-import com.wipro.test.R;
-import com.wipro.test.mvp.model.Rows;
+import com.android.wipro.assignment.model.Rows;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.wipro.test.mvp.model;
+package com.android.wipro.assignment.model;
 
 /**
  * A pojo class for list row being used by retrofit to parse the json response.

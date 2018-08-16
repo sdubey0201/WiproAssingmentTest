@@ -1,11 +1,11 @@
-package com.wipro.test.mvp.presenters;
+package com.android.wipro.assignment.presenters;
 
 
-import com.wipro.test.mvp.model.IRowsDataListener;
-import com.wipro.test.mvp.model.Rows;
-import com.wipro.test.mvp.network.RowsRetrofitClient;
-import com.wipro.test.mvp.model.ServerResponse;
-import com.wipro.test.mvp.views.RowListView;
+import com.android.wipro.assignment.model.IRowsDataListener;
+import com.android.wipro.assignment.model.Rows;
+import com.android.wipro.assignment.network.RowsRetrofitClient;
+import com.android.wipro.assignment.model.ServerResponse;
+import com.android.wipro.assignment.views.RowListView;
 
 import java.util.ArrayList;
 import java.util.List;

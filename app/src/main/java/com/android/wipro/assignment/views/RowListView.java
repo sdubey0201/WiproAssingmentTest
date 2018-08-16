@@ -1,11 +1,11 @@
-package com.wipro.test.mvp.views;
+package com.android.wipro.assignment.views;
 
-import com.wipro.test.mvp.model.Rows;
+import com.android.wipro.assignment.model.Rows;
 
 import java.util.List;
 
 /**
- * This interface is supplied to {@link com.wipro.test.mvp.presenters.RowsPresenter}
+ * This interface is supplied to {@link com.android.wipro.assignment.presenters.RowsPresenter}
  * to update the view and is implemented by {@link MainActivity}
  */
 public interface RowListView  {

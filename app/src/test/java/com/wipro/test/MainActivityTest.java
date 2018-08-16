@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.wipro.test.mvp.views.MainActivity;
+import com.android.wipro.assignment.views.MainActivity;
 
 import org.junit.After;
 import org.junit.Before;

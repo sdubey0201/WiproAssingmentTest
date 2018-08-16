@@ -1,7 +1,6 @@
-package com.wipro.test.mvp.views;
+package com.android.wipro.assignment.views;
 
 import android.app.Dialog;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -14,10 +13,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.wipro.test.R;
-import com.wipro.test.mvp.util.Util;
-import com.wipro.test.mvp.model.Rows;
-import com.wipro.test.mvp.presenters.RowsPresenter;
+import com.android.wipro.assignment.R;
+import com.android.wipro.assignment.util.Util;
+import com.android.wipro.assignment.model.Rows;
+import com.android.wipro.assignment.presenters.RowsPresenter;
 
 import java.util.List;
 

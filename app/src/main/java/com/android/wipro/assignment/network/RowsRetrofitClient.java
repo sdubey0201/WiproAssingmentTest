@@ -1,10 +1,10 @@
-package com.wipro.test.mvp.network;
+package com.android.wipro.assignment.network;
 
 import android.text.TextUtils;
 
-import com.wipro.test.mvp.model.IRowsDataListener;
-import com.wipro.test.mvp.model.Rows;
-import com.wipro.test.mvp.model.ServerResponse;
+import com.android.wipro.assignment.model.IRowsDataListener;
+import com.android.wipro.assignment.model.Rows;
+import com.android.wipro.assignment.model.ServerResponse;
 
 import java.util.Iterator;
 import java.util.List;
@@ -12,14 +12,11 @@ import java.util.List;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Subscriber;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * This class is used by {@link com.wipro.test.mvp.presenters.RowsPresenter}
+ * This class is used by {@link com.android.wipro.assignment.presenters.RowsPresenter}
  * to request the data from network.
  */
 public class RowsRetrofitClient {

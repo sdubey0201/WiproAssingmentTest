@@ -1,4 +1,4 @@
-package com.wipro.test.mvp.util;
+package com.android.wipro.assignment.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
