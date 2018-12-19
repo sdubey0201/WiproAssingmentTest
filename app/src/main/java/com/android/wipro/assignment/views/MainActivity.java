@@ -1,7 +1,9 @@
 package com.android.wipro.assignment.views;
 
 import android.app.Dialog;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,20 +16,20 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.wipro.assignment.R;
+import com.android.wipro.assignment.model.Row;
 import com.android.wipro.assignment.util.Util;
-import com.android.wipro.assignment.model.Rows;
-import com.android.wipro.assignment.presenters.RowsPresenter;
+import com.android.wipro.assignment.viewmodel.RowViewModel;
 
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements RowListView, SwipeRefreshLayout.OnRefreshListener {
+public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private RowsPresenter presenter;
     private ProgressBar progressBar;
     private RowsAdapter adapter;
     private ActionBar actionBar;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private RowViewModel rowViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,30 +51,43 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
         adapter = new RowsAdapter();
         recyclerView.setAdapter(adapter);
 
-        presenter = new RowsPresenter(this);
+        //  presenter = new RowsPresenter(this);
+        rowViewModel = ViewModelProviders.of(this).get(RowViewModel.class);
+
         if (Util.isNetworkAvailable(this)) {
-            presenter.startLoadRows();
+            rowViewModel.startLoadRows();
         } else {
             showError(getString(R.string.network_not_available_str));
         }
 
+        rowViewModel.getListMutableLiveData().observe(this, (serverResponse) -> {
+            hideLoading();
+            if (serverResponse == null || Util.isStringNullAndEmpty(serverResponse.getTitle())
+                    || serverResponse.getRows() == null || serverResponse.getRows().isEmpty()) {
+
+                showError(getString(R.string.host_error));
+            }
+            showResult(serverResponse.getRows());
+            showTitle(serverResponse.getTitle());
+
+        });
+
     }
 
-
-    @Override
-    public void showLoading() {
+    @VisibleForTesting
+    protected void showLoading() {
         progressBar.setVisibility(View.VISIBLE);
 
     }
 
-    @Override
-    public void hideLoading() {
+    @VisibleForTesting
+    protected void hideLoading() {
         progressBar.setVisibility(View.GONE);
         swipeRefreshLayout.setRefreshing(false);
     }
 
-    @Override
-    public void showError(String msg) {
+    @VisibleForTesting
+    protected void showError(String msg) {
         progressBar.setVisibility(View.GONE);
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -94,20 +109,20 @@ public class MainActivity extends AppCompatActivity implements RowListView, Swip
         dialog.show();
     }
 
-    @Override
-    public void showResult(List<Rows> list) {
+    @VisibleForTesting
+    protected void showResult(List<Row> list) {
         adapter.setRows(list);
     }
 
-    @Override
-    public void showTitle(String title) {
+    @VisibleForTesting
+    protected void showTitle(String title) {
         actionBar.setTitle(title);
     }
 
     @Override
     public void onRefresh() {
         if (Util.isNetworkAvailable(this)) {
-            presenter.startLoadRows();
+            rowViewModel.refreshRowList();
             swipeRefreshLayout.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
         } else {

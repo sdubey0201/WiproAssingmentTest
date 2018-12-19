@@ -12,8 +12,7 @@ import android.widget.TextView;
 
 import com.android.wipro.assignment.BuildConfig;
 import com.android.wipro.assignment.R;
-import com.android.wipro.assignment.model.Rows;
-import com.android.wipro.assignment.util.Util;
+import com.android.wipro.assignment.model.Row;
 
 import org.junit.After;
 import org.junit.Before;
@@ -33,9 +32,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = Config.NONE)
@@ -105,9 +101,9 @@ public class MainActivityTest {
 
     @Test
     public void showResult() {
-        Rows rows = new Rows();
-        rows.setTitle("title");
-        List<Rows> list = Arrays.asList(rows);
+        Row row = new Row();
+        row.setTitle("title");
+        List<Row> list = Arrays.asList(row);
         adapter.setRows(list);
         mActivity.showResult(list);
         assertEquals(adapter.getItemCount(), 1);

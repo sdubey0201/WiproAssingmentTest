@@ -1,6 +1,6 @@
 package com.android.wipro.assignment.views;
 
-import com.android.wipro.assignment.model.Rows;
+import com.android.wipro.assignment.model.Row;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public interface RowListView  {
      * show list item
      * @param list
      */
-    void showResult(List<Rows> list);
+    void showResult(List<Row> list);
 
     /**
      * update action bar title

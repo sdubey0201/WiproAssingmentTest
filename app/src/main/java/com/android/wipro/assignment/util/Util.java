@@ -12,4 +12,8 @@ public class Util {
         NetworkInfo ni = cm.getActiveNetworkInfo();
         return ni != null && ni.isConnectedOrConnecting();
     }
+
+    public static boolean isStringNullAndEmpty(String value){
+        return value == null || value.length() == 0;
+    }
 }

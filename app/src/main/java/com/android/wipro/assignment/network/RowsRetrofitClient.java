@@ -3,7 +3,7 @@ package com.android.wipro.assignment.network;
 import android.text.TextUtils;
 
 import com.android.wipro.assignment.model.IRowsDataListener;
-import com.android.wipro.assignment.model.Rows;
+import com.android.wipro.assignment.model.Row;
 import com.android.wipro.assignment.model.ServerResponse;
 
 import java.util.Iterator;
@@ -56,11 +56,11 @@ public class RowsRetrofitClient {
 
     private ServerResponse removeEmptyItemFromResponse(ServerResponse serverResponse) {
 
-        List<Rows> list = serverResponse.getRows();
+        List<Row> list = serverResponse.getRows();
         if (list != null) {
-            Iterator<Rows> iterator = list.iterator();
+            Iterator<Row> iterator = list.iterator();
             while (iterator.hasNext()) {
-                Rows fact = iterator.next();
+                Row fact = iterator.next();
                 if (TextUtils.isEmpty(fact.getTitle())) {
                     iterator.remove();
                 }

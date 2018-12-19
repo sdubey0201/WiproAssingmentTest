@@ -10,9 +10,9 @@ public class ServerResponse {
      * These members will be used by Retrofit, so we must use the same name with json
      */
     private String title;
-    private List<Rows> rows;
+    private List<Row> rows;
 
-    public List<Rows> getRows() {
+    public List<Row> getRows() {
         return rows;
     }
 
@@ -24,7 +24,7 @@ public class ServerResponse {
         this.title = title;
     }
 
-    public void setRows(List<Rows> rows) {
+    public void setRows(List<Row> rows) {
         this.rows = rows;
     }
 }

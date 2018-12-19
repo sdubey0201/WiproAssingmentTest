@@ -8,21 +8,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.wipro.assignment.R;
+import com.android.wipro.assignment.model.Row;
 import com.bumptech.glide.Glide;
-import com.android.wipro.assignment.model.Rows;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RowsAdapter extends RecyclerView.Adapter<RowsAdapter.RowsViewholder> {
 
-    private List<Rows> rows;
+    private List<Row> rows;
 
     public RowsAdapter() {
-        rows = new ArrayList<Rows>();
+        rows = new ArrayList<Row>();
     }
 
-    public void setRows(List<Rows> list) {
+    public void setRows(List<Row> list) {
         rows.clear();
         rows.addAll(list);
         notifyDataSetChanged();
@@ -37,17 +37,17 @@ public class RowsAdapter extends RecyclerView.Adapter<RowsAdapter.RowsViewholder
 
     @Override
     public void onBindViewHolder(final RowsViewholder rowsViewholder, int i) {
-        Rows rows = this.rows.get(i);
-        rowsViewholder.titleView.setText(rows.getTitle());
-        if (TextUtils.isEmpty(rows.getDescription())) {
+        Row row = this.rows.get(i);
+        rowsViewholder.titleView.setText(row.getTitle());
+        if (TextUtils.isEmpty(row.getDescription())) {
             rowsViewholder.descriptionView.setVisibility(View.GONE);
         } else {
             rowsViewholder.descriptionView.setVisibility(View.VISIBLE);
-            rowsViewholder.descriptionView.setText(rows.getDescription());
+            rowsViewholder.descriptionView.setText(row.getDescription());
         }
 
         Glide.with(rowsViewholder.imageView.getContext())
-                .load(rows.getImageHref())
+                .load(row.getImageHref())
                 .fitCenter()
                 .placeholder(R.drawable.place_holder_images)
                 .error(R.drawable.error_image)
