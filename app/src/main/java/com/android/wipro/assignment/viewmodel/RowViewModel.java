@@ -16,13 +16,12 @@ import com.android.wipro.assignment.network.RowsRetrofitClient;
 
 public class RowViewModel extends ViewModel implements IRowsDataListener {
     //this is the data that we will fetch asynchronously
-    private MutableLiveData<ServerResponse> listMutableLiveData;
+    private MutableLiveData<ServerResponse> listMutableLiveData = new MutableLiveData<>();
     private RowsRetrofitClient rowsRetrofitClient;
 
     public void startLoadRows() {
-        if (rowsRetrofitClient == null && listMutableLiveData == null) {
+        if (rowsRetrofitClient == null ) {
             rowsRetrofitClient = new RowsRetrofitClient();
-            listMutableLiveData = new MutableLiveData<>();
             rowsRetrofitClient.callRowsData(this);
         }
 
